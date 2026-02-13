@@ -45,13 +45,13 @@ export const groups: DashboardGroup[] = [
     },
   {
     id: "office",
-    title: "Office (later toevoegen)",
+    title: "Office",
     links: [
-                 {
-                title: "Minecraft programmeren",
-                url: "https://outlook.office.com/mail/",
-                icon: "📥",
-            },
+        {
+            title: "GeoShop Mail",
+            url: "https://outlook.office.com/mail/",
+            icon: "📥",
+        },
     ],
   },
     
