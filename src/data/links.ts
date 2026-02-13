@@ -47,8 +47,11 @@ export const groups: DashboardGroup[] = [
     id: "office",
     title: "Office (later toevoegen)",
     links: [
-      // Placeholder: hier zet je later Office links in
-      // { title: "Outlook", url: "...", icon: "📧" },
+                 {
+                title: "Minecraft programmeren",
+                url: "https://outlook.office.com/mail/",
+                icon: "📥",
+            },
     ],
   },
     
