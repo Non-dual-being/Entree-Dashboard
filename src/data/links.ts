@@ -1,6 +1,6 @@
 import { type IconType } from "react-icons";
 import { MdEmail, MdOutlineQrCodeScanner } from "react-icons/md";
-import { TbMailOpened } from "react-icons/tb";
+
 
 
 export type DashboardLink = {
