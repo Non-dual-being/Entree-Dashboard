@@ -1,7 +1,13 @@
+import { type IconType } from "react-icons";
+import { MdEmail, MdOutlineQrCodeScanner } from "react-icons/md";
+import { TbMailOpened } from "react-icons/tb";
+
+
 export type DashboardLink = {
     title: string;
     url: string;
     icon?: string;
+    IconCmp?: IconType;
 }
 
 export type DashboardGroup = {
@@ -20,6 +26,7 @@ export const groups: DashboardGroup[] = [
                 title: "Fort arrangement",
                 url: "https://app.weticket.io/geofort/events/op-en-top-fort-arrangement",
                 icon: "🎟️",
+                IconCmp: MdOutlineQrCodeScanner,
             },
             {
                 title: "Historische rondleiding",
@@ -51,6 +58,7 @@ export const groups: DashboardGroup[] = [
             title: "GeoShop Mail",
             url: "https://outlook.office.com/mail/",
             icon: "📥",
+            IconCmp: MdEmail,
         },
     ],
   },

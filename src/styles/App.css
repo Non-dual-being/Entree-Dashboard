@@ -1,3 +1,4 @@
+/* ========== BASE ========== */
 @layer base {
   * {
     box-sizing: border-box;
@@ -17,9 +18,11 @@
 
   a {
     color: inherit;
+    text-decoration: none;
   }
 }
 
+/* ========== LAYOUT ========== */
 @layer layout {
   .page {
     min-height: 100vh;
@@ -27,9 +30,10 @@
     grid-template-rows: auto 1fr auto;
   }
 
+  /* Header */
   .header_dashboard {
     background: var(--color-main-blue-dark);
-    color: white;
+    color: #fff;
     padding: var(--padding-xxl) var(--padding-xxl);
   }
 
@@ -50,6 +54,7 @@
     font-size: var(--font-size-main);
   }
 
+  /* Content + groepen */
   .content {
     max-width: 1100px;
     width: 100%;
@@ -70,6 +75,7 @@
   .group_title {
     margin: 0 0 12px;
     font-family: var(--font-headings);
+    font-weight: 700;
   }
 
   .group_empty {
@@ -77,46 +83,88 @@
     opacity: 0.75;
   }
 
+  /* Grid met tiles */
   .grid {
     display: grid;
-    gap: 14px;
+    gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
 
+  /* ========== TILE ========== */
+
+  /* Kaartje met header (titel) boven en body (icoon) gecentreerd */
   .tile {
     display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 12px;
-    align-items: center;
-
+    grid-template-rows: auto 1fr;
     padding: 14px;
-    background: white;
+    background: #fff;
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 14px;
-    text-decoration: none;
-    min-height: 68px;
+    color: inherit;
+    min-height: 140px;
+
+    transition: box-shadow 160ms ease, border-color 160ms ease,
+      transform 80ms ease, background 160ms ease;
   }
 
   .tile:hover {
     border-color: rgba(0, 0, 0, 0.22);
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+    background: #fcfcfc;
   }
 
+  .tile:active {
+    transform: translateY(1px);
+  }
+
+  .tile:focus-visible {
+    outline: 2px solid #1a73e8;
+    outline-offset: 2px;
+  }
+
+  /* Titel bovenaan: max 2 regels, daarna ellipsis */
+  .tile_header {
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 8px;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* max 2 regels */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    text-align: center;
+  }
+
+  /* Body centreert het icoon */
+  .tile_body {
+    display: grid;
+    place-items: center;
+    padding: 8px 0 4px;
+  }
+
+  /* Icoon “badge” */
   .tile_icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
     display: grid;
     place-items: center;
     background: var(--color-main-bg-gray);
-    font-size: 22px;
+    color: #1a1a1a;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.06);
   }
 
-  .tile_title {
-    font-weight: var(--font-weight-medium);
-    line-height: 1.2;
+  /* Emoji iets groter en netjes uitgelijnd */
+  .tile_emoji {
+    font-size: 30px;
+    line-height: 1;
+    display: inline-block;
+    transform: translateY(1px);
   }
 
+  /* ========== FOOTER ========== */
   .footer_dashboard {
     padding: var(--padding-large) var(--padding-xxl);
     display: flex;
@@ -124,7 +172,7 @@
     justify-content: space-between;
     gap: 14px;
 
-    background: white;
+    background: #fff;
     border-top: 1px solid rgba(0, 0, 0, 0.12);
   }
 
@@ -144,10 +192,21 @@
     display: block;
   }
 
+  /* ========== RESPONSIVE ========== */
   @media (max-width: 480px) {
     .footer_dashboard {
       flex-direction: column;
       align-items: flex-start;
+    }
+
+    .tile {
+      min-height: 120px;
+    }
+
+    .tile_icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
     }
   }
 }

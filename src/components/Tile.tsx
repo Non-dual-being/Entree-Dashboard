@@ -4,21 +4,47 @@ type TileProps = {
     item: DashboardLink
 };
 
+/**
+ * TitlePRops indicates its a object with item as key and dashboardlink as value
+ */
+
 export function Tile({ item }: TileProps){
-    const icon = item.icon ?? "🔗";
+    const emoji= item.icon ?? "🔗";
+    const Icon = item.IconCmp;
 
     return (
         <a 
             href={item.url}
-            className="title"
+            className="tile"
             target="_blank"
-            rel="noopener noreferrer"    
+            rel="noopener noreferrer"
+            title={item.title}    
             
         > 
-            <div className="title_ion" aria-hidden="true">
-                {icon}
+           <div className="tile_header">{item.title}</div>
+            <div className="tile_body">
+                <div className="tile_icon" aria-hidden="true">
+                    {Icon 
+                        ? <Icon size={36} /> 
+                        : <span className="tile_emoji">{emoji}</span>
+                    
+                    }
+                </div>
             </div>
-            <div className="title_title">{item.title}</div>
         </a>
     )
 }
+
+
+/**
+ * 
+ * React works with props
+ * 
+ * so { item }: TileProps is short handed for Props.item 
+ * 
+ * Although deconstructiom is used here, the object from where the decontstruction happens is from Type TileProps
+ * 
+ * 
+ * 
+ * 
+ */
