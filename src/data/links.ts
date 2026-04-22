@@ -39,8 +39,8 @@ export const groups: DashboardGroup[] = [
                 icon: "🕶️",
             },
             {
-                title: "Minecraft workshop klimaat",
-                url: "https://app.weticket.io/geofort/events/minecraft-workshop-klimaat",
+                title: "Minecraft workshop Climate-Crafter",
+                url: "https://app.weticket.io/geofort/events/minecraft-climate-compass-workshop",
                 icon: "🌍",
             },
             {
